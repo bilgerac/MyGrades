@@ -1,0 +1,6 @@
+%h2 Create New Assignment
+
+= form_tag assignments_path :method => :post do
+    = label :assignment, :title, 'Title'
+    = text_field :assignment, :title
+    = submit_tag 'Save Changes'

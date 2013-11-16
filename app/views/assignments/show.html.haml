@@ -1,0 +1,9 @@
+%h2 Details about #{@assignment.title}
+
+%ul#details
+    %li
+        Title:
+        = @assignment.title
+
+= button_to 'Delete', assignment_path(@assignment), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Back to assignment list', assignments_path

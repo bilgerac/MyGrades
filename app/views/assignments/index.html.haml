@@ -1,0 +1,11 @@
+%h1 All Assignments
+
+%table#assignments
+    %thead
+        %tr
+            %th Assignment
+    %tbody
+        -@assignments.each do |assignment|
+            %tr
+                %td= assignment.title
+                %td= link_to "More about #{assignment.title}", assignment_path(assignment)
