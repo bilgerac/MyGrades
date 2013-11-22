@@ -14,7 +14,9 @@ class AssignmentsController < ApplicationController
     def new
         #renders the default view
     end
+    def edit #update the grade
 
+    end
     def destroy
         @assignment = Assignment.find(params[:id])
         @assignment.destroy
