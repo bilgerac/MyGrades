@@ -1,14 +1,19 @@
 %h2 Create New Assignment
 
-%form{:class => "form-horizontal"}
+%form{:class => "form-horizontal", :action => '/assignments', :method => "post"}
     %div{:class =>"control-group"}
         %label{:class => 'control-label', :for => "assignment"}Assignment
         %div{:class => "controls"}
-            %input{:type => "text", :id => "inputEmail", :placeholder => "Email"}
+            %input{:type => "text", :id => "inputEmail", :name =>"assignment[title]", :placeholder => "Assignment Title"}
+    %div{:class =>"control-group"}
+        %label{:class => 'control-label', :for => "dueDate"}Due Date
+        %div{:class => "controls"}
+            %input{:type => "text", :id => "dueDate", :placeholder => "mm/dd", :name => "assignment[dueDate]"}
+    %div{:class =>"control-group"}
+        %label{:class => 'control-label', :for => "points"}Total Points
+        %div{:class => "controls"}
+            %input{:type => "text", :id => "points", :placeholder => "100", :name => "assignment[possiblePoints]"}
     %div{:class => "control-group"}
-        = label :assignment, :title, 'Title'
-        = text_field :assignment, :title
-        = label :dueDate, :title, 'Due date'
-        = text_field :dueDate, :title
-        = submit_tag 'Save Changes'
-    =link_to "Back to Home Page", assignments_path()
+        %div{:class => "controls"}
+            %button{:type => "submit", :class => "btn"} Save Changes
+=link_to "Back to Home Page", assignments_path()
