@@ -4,7 +4,7 @@ class Assignment < ActiveRecord::Base
     attr_accessible :points
     attr_accessible :possiblePoints
     attr_accessible :percentGrade
-
+    attr_accessible :description
     after_initialize :init #initial settings
 
     def init

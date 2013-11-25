@@ -3,6 +3,7 @@ class CreateAssignments < ActiveRecord::Migration
     create_table 'assignments' do |t|
         t.string 'title'
         t.string 'dueDate'
+        t.string 'description'
         t.integer 'points'
         t.integer 'possiblePoints'
         t.integer  'percentGrade'
