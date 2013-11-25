@@ -1,19 +1,33 @@
 %h2 Create New Assignment
+%div{:class => "row"}
+    %div{:class => "col-md-2"}
+        %h3 Navigation
+        %ol{:class => "nav nav-pills nav-stacked"}
+            %li=link_to "Back to Assignments", assignments_path()
+    %div{:class => "col-md-8"}
+        %form{:role => "form-center", :action => assignments_path, :method => "post", :class => "form-horizontal", :id => "aForm"}
+            %div{:class => "form-group"}
+                -if flash[:notice]
+                    %label{:class => "message col-sm-4 control-label pull-left", :id => "notice"}= flash[:notice]
+                -elsif flash[:warning]
+                    %label{:class => "message col-sm-4 control-label pull-left", :id => "warning"}= flash[:warning]
+            %div{:class => "form-group"}
+                %label{:for => "inputAssignmentName", :class => "col-sm-2 control-label"}Assignment Name
+                %div{:class => "col-sm-4"}
+                    %input{:type => "text", :class => "form-control", :id => "inputAssignmentName", :name => "assignment[title]"}
+            %div{:class => "form-group"}
+                %label{:for => "inputDueDate", :class => "col-sm-2 control-label"}Due Date
+                %div{:class => "col-sm-4"}
+                    %input{:type => "text", :class => "form-control", :id => "inputDueDate", :name => "assignment[dueDate]"}
+            %div{:class => "form-group"}
+                %label{:for => "inputDescription", :class => "col-sm-2 control-label"}Description
+                %div{:class => "col-sm-4", :id => "inputDescription"}
+                    %textarea{:class => "form-control", :name => "assignment[description"}
+            %div{:class => "form-group"}
+                %label{:for => "inputPoints", :class =>"col-sm-2 control-label"}Points Possible
+                %div{:class => "col-sm-4"}
+                    %input{:type => "text", :class => "form-control", :id => "inputPoints", :name => "assignment[possiblePoints]"}
+            %div{:class => "form-group"}
+                %div{:class => "col-sm-offset-2 col-sm-10"}
+                    %button{:type => "submit", :class => "btn btn-default"}Save
 
-%form{:class => "form-horizontal", :action => '/assignments', :method => "post"}
-    %div{:class =>"control-group"}
-        %label{:class => 'control-label', :for => "assignment"}Assignment
-        %div{:class => "controls"}
-            %input{:type => "text", :id => "inputEmail", :name =>"assignment[title]", :placeholder => "Assignment Title"}
-    %div{:class =>"control-group"}
-        %label{:class => 'control-label', :for => "dueDate"}Due Date
-        %div{:class => "controls"}
-            %input{:type => "text", :id => "dueDate", :placeholder => "mm/dd", :name => "assignment[dueDate]"}
-    %div{:class =>"control-group"}
-        %label{:class => 'control-label', :for => "points"}Total Points
-        %div{:class => "controls"}
-            %input{:type => "text", :id => "points", :placeholder => "100", :name => "assignment[possiblePoints]"}
-    %div{:class => "control-group"}
-        %div{:class => "controls"}
-            %button{:type => "submit", :class => "btn"} Save Changes
-=link_to "Back to Home Page", assignments_path()

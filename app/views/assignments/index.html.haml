@@ -1,12 +1,14 @@
-%h1 All Assignments
-
-%table#assignments
-    %thead
-        %tr
-            %th Assignment
-    %tbody
-        -@assignments.each do |assignment|
-            %tr
-                %td= assignment.title
-                %td= link_to "More about #{assignment.title}", assignment_path(assignment)
-=link_to "Create an assignment", new_assignment_path()
+%div{:class => "container-fluid"}
+    %div{:class => "row"}
+        %div{:class => "col-md-2"}
+            %h3 Navigation
+            %ol{:class => "nav nav-pills nav-stacked"}
+                %li=link_to "Create an assignment", new_assignment_path()
+        %div{:class => "col-md-10"}
+            %h3 Assignments
+            %table{:class => "table table-striped"}
+                %tbody
+                    -@assignments.each do |assignment|
+                        %tr
+                            %td= assignment.title
+                            %td= link_to "More about #{assignment.title}", assignment_path(assignment)

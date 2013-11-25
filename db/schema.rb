@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20131115214359) do
   create_table "assignments", :force => true do |t|
     t.string  "title"
     t.string  "dueDate"
+    t.string  "description"
     t.integer "points"
     t.integer "possiblePoints"
     t.integer "percentGrade"

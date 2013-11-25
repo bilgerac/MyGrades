@@ -3,8 +3,13 @@ class AssignmentsController < ApplicationController
         @assignments = Assignment.all
     end
     def create
-        @assignment = Assignment.create!(params[:assignment])
-        redirect_to assignments_path
+        if params[:assignment].values.include?("") #check if there are empty fields
+              flash[:warning] = "Please fill in all fields"
+              redirect_to :back
+            else
+                @assignment = Assignment.create!(params[:assignment])
+                redirect_to assignments_path
+        end
     end
     def show
         id = params[:id]

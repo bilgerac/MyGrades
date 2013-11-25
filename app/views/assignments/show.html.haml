@@ -1,13 +1,28 @@
-%h2 Details about #{@assignment.title}
+%div:{:class => "container-fluid"}
+    %div{:class => "row"}
+        %div{:class => "col-md-2"}
+            %h3 Navigation
+            %ol:{:class => "nav nav-pills nav-stacked"}
+                %li= link_to 'Update', edit_assignment_path(@assignment)
+                %li=link_to'Delete', assignment_path(@assignment), :method => :delete, :confirm => 'Are you sure?'
+                %li=link_to 'Back to assignment list', assignments_path
+        %div{:class => "col-md-4"}
+            %h2 Details about #{@assignment.title}
+            %table{:class => "table"}
+                %tbody
+                    %tr
+                        %td#header{:class => "col-md-6"} Due date:
+                        %td #{@assignment.dueDate}
+                    %tr
+                        %td#header Points Earned
+                        %td #{@assignment.points}
+                    %tr
+                        %td#header Total Points
+                        %td #{@assignment.possiblePoints}
+                    %tr
+                        %td#header Grade
+                        %td #{@assignment.percentGrade}
+                    %tr
+                        %td#header Description
+                        %td #{@assignment.description}
 
-%ul#details
-    %li Due date:
-    =@assignment.dueDate
-    %li Points Earned:
-    =@assignment.points
-    %li Total Points:
-    =@assignment.possiblePoints
-    %li Grade:
-    =@assignment.percentGrade
-= button_to 'Delete', assignment_path(@assignment), :method => :delete, :confirm => 'Are you sure?'
-= link_to 'Back to assignment list', assignments_path
