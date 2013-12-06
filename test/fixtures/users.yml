@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_name: MyString
+  user_type: MyString
+  user_id: MyString
+  team_id: MyString
+  section: 
+
+two:
+  user_name: MyString
+  user_type: MyString
+  user_id: MyString
+  team_id: MyString
+  section: 
