@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.all
+  @users = User.find_all_by_user_name(params[:user_name])
+#@users = User.all
   end
 
   def create
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
   end
 
  def show
+    
     @user = User.find(params[:id])
   end
 

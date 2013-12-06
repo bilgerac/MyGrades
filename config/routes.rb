@@ -4,7 +4,6 @@ MyGrades::Application.routes.draw do
   get "dashboard/index"
 
   resources :users
-  resources :default
 # The priority is based upon order of creation:
   # first created -> highest priority.
 
