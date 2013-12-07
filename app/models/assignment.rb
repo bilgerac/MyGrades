@@ -1,14 +1,14 @@
 class Assignment < ActiveRecord::Base
     attr_accessible :title #list of fields that you want to be accessible
-    attr_accessible :dueDate
-    attr_accessible :points
-    attr_accessible :possiblePoints
-    attr_accessible :percentGrade
     attr_accessible :description
-    after_initialize :init #initial settings
+    attr_accessible :user_id
+    attr_accessible :grade
 
-    def init
-        self.percentGrade ||= 0 #sets the value only if it's nil
-        self.points ||=0
+    def self.build_from_csv(row, params)
+        row.compact! #take out nil values, figure out why they were there later
+        @assignment = Assignment.create!(:title => params[:title], :description => params[:description],
+                           :user_id => row[0], :grade => row[1]);
+        raise @assignment.inspect
+        #find existing user from UH id or create new
     end
 end

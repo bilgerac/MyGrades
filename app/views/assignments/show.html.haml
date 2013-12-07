@@ -7,21 +7,12 @@
                 %li=link_to'Delete', assignment_path(@assignment), :method => :delete, :confirm => 'Are you sure?'
                 %li=link_to 'Back to assignment list', assignments_path
         %div{:class => "col-md-4"}
-            %h2 Details about #{@assignment.title}
+            %h3 #{@assignment.title}
             %table{:class => "table"}
                 %tbody
                     %tr
                         %td#header{:class => "col-md-6"} Due date:
                         %td #{@assignment.dueDate}
-                    %tr
-                        %td#header Points Earned
-                        %td #{@assignment.points}
-                    %tr
-                        %td#header Total Points
-                        %td #{@assignment.possiblePoints}
-                    %tr
-                        %td#header Grade
-                        %td #{@assignment.percentGrade}
                     %tr
                         %td#header Description
                         %td #{@assignment.description}
